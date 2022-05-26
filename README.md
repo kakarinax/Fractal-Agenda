@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Technical interview test.
 
-Things you may want to cover:
+DB diagram:
+<img width="594" alt="db-diagram" src="https://user-images.githubusercontent.com/51208643/170415934-f4491d00-48c1-417f-ac33-706f322c09bb.png">
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Para utlizar a API é necessário, primeiramente a criação do login de usuário.
+Após logar, poderá criar novos contatos, editar e deletar, além disso, cada usuário consegue visualizar apenas os próprios contatos. 
