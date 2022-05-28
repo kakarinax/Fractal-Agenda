@@ -1,0 +1,54 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+  background-color: #880e93 !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+}
+
+#logo {
+  color: #fff;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+}
+
+#home-container {
+  background-color: black;
+  margin-bottom: -5em;
+  padding-top: 5em;
+  margin-top: 10px;
+  height: 425px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+.btn-outline-light {
+  margin: 10px;
+}
+
+#form-container {
+  background-color: #94BFD2 !important;
+}
+
+.btn-primary {
+  margin-top: 2em;
+  background-color: #880e93 !important;
+  color: #ffffff !important;
+}
