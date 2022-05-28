@@ -1,14 +1,17 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit update destroy ]
-  before_action :load_u
+  before_action :authenticate_user!
 
   # GET /contacts or /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts
+
+    render json: @contacts
   end
 
   # GET /contacts/1 or /contacts/1.json
   def show
+    @contact = Contact.find(params[:id])
   end
 
   # GET /contacts/new
@@ -18,11 +21,12 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1/edit
   def edit
+    @contact = Contact.find(params[:id])
   end
 
   # POST /contacts or /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @contact.save
@@ -37,6 +41,8 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1 or /contacts/1.json
   def update
+    if @contact.update(contact_params)
+
     respond_to do |format|
       if @contact.update(contact_params)
         format.html { redirect_to contact_url(@contact), notice: "Contact was successfully updated." }
@@ -66,6 +72,12 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.fetch(:contact, {})
+      params.require(:contact).permit(:name, :relationship, :user_id)
+    end
+
+    def authenticate_user!
+      unless current_user
+        redirect_to root_url, alert: "You must be logged in to access this page.", status: :forbidden
+      end
     end
 end
