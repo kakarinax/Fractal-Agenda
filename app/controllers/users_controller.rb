@@ -36,6 +36,6 @@ class UsersController < ApplicationController
     end
 
     def authenticate_user!
-      redirect_to new_user_session_path unless user_signed_in?
+      redirect_to new_user_session_path unless current_user == @user
     end
 end
