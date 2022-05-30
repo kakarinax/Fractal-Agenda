@@ -1,0 +1,31 @@
+<div class="row justify-content-md-center">
+    <div class="col-6">
+      <div class="card shadow mb-5 bg-white rounded">
+        <div class="card-header">
+          <h3 class="card-title text-center">
+            <%= @contact.name %>
+          </h3>
+        </div>
+        <div class="card-body pr-2">
+          <p class="card-text pr-2 mb-3"> 
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"> Email: <%= @contact.email %> </li>
+              <li class="list-group-item"> Phone: <%= @contact.phone %> </li>
+              <li class="list-group-item"> City: <%= @contact.city %> </li>
+              <li class="list-group-item"> State: <%= @contact.state %> </li>
+              <li class="list-group-item"> Country: <%= @contact.country %> </li>
+              <li class="list-group-item"> Relationship: <%= @contact.relationship %> </li>
+            </ul>
+          </p>
+          <div class="row">
+            <div class="d-grid gap-2 col-12 mx-auto">
+              <%= link_to "Edit contact", edit_contact_path(@contact.id), class:"btn btn-primary" %>
+              <%= link_to "Delete contact", contact_path(@contact.id), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-primary" %>
+              <%= link_to 'Back', contacts_path, class:"btn" %>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
